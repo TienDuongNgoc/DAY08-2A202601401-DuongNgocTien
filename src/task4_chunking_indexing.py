@@ -68,7 +68,7 @@ CHUNKING_METHOD = "recursive"  # "recursive" | "markdown_header" | "semantic"
 #   - Đánh đổi: 1024-dim nặng hơn MiniLM (384-dim) nên index lớn hơn, nhưng chấp
 #     nhận được vì ưu tiên độ chính xác retrieval hơn là tốc độ/kích thước ở giai
 #     đoạn này.
-EMBEDDING_MODEL = "BAAI/bge-m3"
+EMBEDDING_MODEL = "BAAI/bge-m3"  # Vì sao? Multilingual, tốt cho tiếng Việt lẫn tiếng Anh
 EMBEDDING_DIM = 1024
 
 # Vector store: ChromaDB
@@ -152,7 +152,7 @@ def chunk_documents(documents: list[dict]) -> list[dict]:
 
 def embed_chunks(chunks: list[dict]) -> list[dict]:
     """
-    Embed toàn bộ chunks bằng model đã chọn (BAAI/bge-m3).
+    Embed toàn bộ chunks bằng model đã chọn.
 
     Returns:
         Mỗi chunk dict được thêm key 'embedding': list[float]
@@ -160,7 +160,12 @@ def embed_chunks(chunks: list[dict]) -> list[dict]:
     from sentence_transformers import SentenceTransformer
 
     model = SentenceTransformer(EMBEDDING_MODEL)
-    texts = [c["content"] for c in chunks]
+    
+    # E5 models require "passage: " prefix for document chunks
+    if "e5" in EMBEDDING_MODEL.lower():
+        texts = [f"passage: {c['content']}" for c in chunks]
+    else:
+        texts = [c["content"] for c in chunks]
 
     embeddings = model.encode(
         texts,
