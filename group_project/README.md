@@ -19,7 +19,7 @@ Nhóm áp dụng phương án phân vai dành cho 6 thành viên trong đề bà
 | 2 | Nguyễn Minh Huy | 2A202601303 | Role 2 — Data Engineering & Scraping Developer | Task 1–3: thu thập tài liệu, crawl tin tức và chuẩn hóa dữ liệu sang Markdown | Đã phân công |
 | 3 | Ngô Phương Nam | 2A202601231 | Role 3 — Vector Database & Dense Search Developer | Task 4–5: chunking, ChromaDB, Semantic Search và HyDE | Đã phân công |
 | 4 | Nguyễn Mạnh Hiệp | 2A202601391 | Role 4 — Sparse Retrieval & Fallback Developer | Task 6–8: BM25/TF-IDF, RRF reranking và PageIndex fallback | Đã phân công |
-| 5 | Đặng Hoàng Hải | 2A202601303 | Role 5 — Frontend UI & App Integration Developer | Thiết kế Streamlit UI và tích hợp sinh câu trả lời có citation | Đã phân công |
+| 5 | Đặng Hoàng Hải | 2A202601117 | Role 5 — Frontend UI & App Integration Developer | Thiết kế Streamlit UI và tích hợp sinh câu trả lời có citation | Đã phân công |
 | 6 | Thiều Văn Long | 2A202601489 | Role 6 — Evaluation & Benchmark QA Developer | Xây dựng golden dataset 20 câu, chạy benchmark A/B và viết báo cáo | Đã phân công |
 
 ## 3. Kiến trúc hệ thống
