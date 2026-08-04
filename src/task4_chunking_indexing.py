@@ -68,8 +68,8 @@ CHUNKING_METHOD = "recursive"  # "recursive" | "markdown_header" | "semantic"
 #   - Đánh đổi: 1024-dim nặng hơn MiniLM (384-dim) nên index lớn hơn, nhưng chấp
 #     nhận được vì ưu tiên độ chính xác retrieval hơn là tốc độ/kích thước ở giai
 #     đoạn này.
-EMBEDDING_MODEL = "intfloat/multilingual-e5-small"
-EMBEDDING_DIM = 384
+EMBEDDING_MODEL = "BAAI/bge-m3"  # Vì sao? Multilingual, tốt cho tiếng Việt lẫn tiếng Anh
+EMBEDDING_DIM = 1024
 
 # Vector store: ChromaDB
 # Lý do: local, persistent, không cần Docker/server riêng, phù hợp cho pipeline
