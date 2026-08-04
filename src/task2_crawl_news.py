@@ -34,6 +34,11 @@ ARTICLE_URLS = [
     # Ví dụ (trang công khai RMIT Vietnam):
     # "https://www.rmit.edu.vn/libraryvn/...",
     # "https://www.rmit.edu.vn/students/...",
+    "https://www.rmit.edu.vn/vi/hoc-tap-tai-rmit/hoc-phi",
+    "https://www.rmit.edu.vn/vi/sem/ug/buoc-ra-the-gioi-tu-vietnam-voi-tam-bang-cu-nhan-quoc-te-rmit?utm_source=Google&utm_medium=SEM.Branding&utm_campaign=HN_SEM_UG_2026&utm_content=Truong_dai_hoc_quoc_te_RMIT&gad_source=1",
+    "https://www.rmit.edu.vn/vi/hoc-tap-tai-rmit/chuong-trinh-cu-nhan/cu-nhan-cong-nghe-thong-tin",
+    "https://www.rmit.edu.vn/vi/su-kien/tat-ca-cac-su-kien/2026/hoi-thao-ve-tam-nhin-giao-duc-dai-hoc-2026-yeu-to-con-nguoi",
+    "https://www.rmit.edu.vn/vi/hoc-tap-tai-rmit/chuong-trinh-cu-nhan/ky-su-ky-thuat-phan-mem"
 ]
 
 
@@ -52,15 +57,22 @@ async def crawl_article(url: str) -> dict:
     from crawl4ai import AsyncWebCrawler
 
     # TODO: Implement crawling logic
-    # async with AsyncWebCrawler() as crawler:
-    #     result = await crawler.arun(url=url)
-    #     return {
-    #         "url": url,
-    #         "title": result.metadata.get("title", "Unknown"),
-    #         "date_crawled": datetime.now().isoformat(),
-    #         "content_markdown": result.markdown,
-    #     }
-    raise NotImplementedError("Implement crawl_article")
+    async with AsyncWebCrawler() as crawler:
+        result = await crawler.arun(url=url)
+        
+        # Handle metadata which could be None or lacking 'title'
+        title = "Unknown"
+        if hasattr(result, "metadata") and isinstance(result.metadata, dict):
+            title = result.metadata.get("title", "Unknown")
+        elif hasattr(result, "title") and result.title:
+            title = result.title
+            
+        return {
+            "url": url,
+            "title": title,
+            "date_crawled": datetime.now().isoformat(),
+            "content_markdown": result.markdown,
+        }
 
 
 async def crawl_all():
