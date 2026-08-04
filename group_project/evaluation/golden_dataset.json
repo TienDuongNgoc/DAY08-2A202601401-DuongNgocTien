@@ -1,17 +1,102 @@
 [
   {
-    "question": "Học phí hàng năm của chương trình Business tại RMIT Vietnam là bao nhiêu?",
-    "expected_answer": "Khoảng 375.840.000 VND mỗi năm (tùy chương trình cụ thể).",
-    "expected_context": "Trang Tuition Fees, mục Undergraduate Programs"
+    "question": "Học phí năm 2026 của chương trình Cử nhân Kinh doanh tại RMIT Việt Nam là bao nhiêu?",
+    "expected_answer": "Mức học phí tham khảo là 375.840.000 VNĐ mỗi năm cho khối lượng học tập trung bình 8 môn (96 tín chỉ). Toàn chương trình gồm 24 môn, 288 tín chỉ, có học phí tham khảo 1.127.520.000 VNĐ.",
+    "expected_context": "data/standardized/news/article_01.md — mục Học phí chương trình Đại học năm 2026, Khoa Kinh doanh"
   },
   {
-    "question": "Học phí được thanh toán theo hình thức nào?",
-    "expected_answer": "Thanh toán theo từng học kỳ, tính theo từng môn học đã đăng ký.",
-    "expected_context": "Trang Tuition Fees, mục Payment Structure"
+    "question": "RMIT Việt Nam tính và thu học phí theo năm hay theo học kỳ?",
+    "expected_answer": "Học phí được thanh toán theo từng học kỳ và được tính dựa trên số môn sinh viên đăng ký học trong học kỳ đó.",
+    "expected_context": "data/standardized/news/article_01.md — phần giới thiệu Học phí và mục Những điều cần lưu ý về học phí"
   },
   {
-    "question": "Trường có cung cấp ký túc xá trong khuôn viên không?",
-    "expected_answer": "Không — trường không cung cấp chỗ ở trong khuôn viên, nhưng có đội ngũ hỗ trợ sinh viên tìm chỗ ở gần trường.",
-    "expected_context": "Trang Accommodation Services"
+    "question": "Toàn bộ chương trình Dự bị Đại học (Foundation) năm 2026 có học phí bao nhiêu?",
+    "expected_answer": "Học phí toàn bộ chương trình Dự bị Đại học năm 2026 là 316.992.000 VNĐ, tương đương khoảng 12.099 USD theo mức tham khảo.",
+    "expected_context": "data/standardized/news/article_01.md — mục Học phí chương trình Dự bị Đại học (Foundation)"
+  },
+  {
+    "question": "Sinh viên có thể thanh toán học phí cho RMIT Việt Nam bằng những phương thức nào?",
+    "expected_answer": "Sinh viên có thể thanh toán trực tuyến qua VCB-iB@nking, thanh toán bằng thẻ Mastercard hoặc Visa tại quầy Thu ngân RMIT, chuyển khoản vào tài khoản Vietcombank của RMIT Việt Nam, hoặc nộp thẻ/tiền mặt trực tiếp vào tài khoản Vietcombank. Thanh toán trực tuyến qua myRMIT là phương thức được khuyến nghị.",
+    "expected_context": "data/standardized/news/article_01.md — mục Phương thức thanh toán học phí và Những điều cần lưu ý về học phí"
+  },
+  {
+    "question": "Phí bảo hiểm y tế năm 2026 dành cho sinh viên quốc tế và sinh viên Việt Nam tại RMIT là bao nhiêu?",
+    "expected_answer": "Bảo hiểm y tế dành cho sinh viên quốc tế là 7.400.000 VNĐ mỗi học kỳ. Bảo hiểm y tế bắt buộc dành cho sinh viên Việt Nam là 683.100 VNĐ mỗi năm, áp dụng từ học kỳ 2 năm 2026. Các mức phí này có thể thay đổi mà không báo trước.",
+    "expected_context": "data/standardized/news/article_01.md — mục Phí phụ thu bắt buộc và Những điều cần lưu ý về học phí"
+  },
+  {
+    "question": "Ngày Hạn Chót Thanh Toán Học Phí và Ngày Hạn Chót Ghi Danh của một học kỳ thông thường là khi nào?",
+    "expected_answer": "Ngày Hạn Chót Thanh Toán Học Phí là thứ Sáu của tuần thứ 3; đây là hạn thanh toán không bị tính phí trễ hạn. Ngày Hạn Chót Ghi Danh là thứ Sáu của tuần thứ 4; đây là ngày cuối sinh viên có thể rút môn mà không phải trả toàn bộ học phí môn học.",
+    "expected_context": "data/standardized/legal/student-fees-and-charges-guide-06-2026.md — mục 15, Chú Giải Thuật ngữ (Payment Date và Census Date)"
+  },
+  {
+    "question": "Sinh viên nhận học bổng có phải trả học phí nếu trượt môn hoặc rút môn sau Ngày Hạn Chót Ghi Danh không?",
+    "expected_answer": "Có. Nếu sinh viên nhận học bổng trượt môn hoặc rút môn sau Ngày Hạn Chót Ghi Danh mà không được chấp thuận hoàn cảnh đặc biệt, sinh viên phải tự trả toàn bộ học phí của môn đó.",
+    "expected_context": "data/standardized/legal/student-fees-and-charges-guide-06-2026.md — quy định học phí dành cho sinh viên học bổng"
+  },
+  {
+    "question": "Sinh viên học môn tiêu chuẩn muốn xin gia hạn đóng học phí cần làm gì và có thể được gia hạn tối đa bao lâu?",
+    "expected_answer": "Sinh viên phải nộp đơn theo mẫu cho khối Học vụ trước Ngày Hạn Chót Thanh Toán Học Phí, nêu hoàn cảnh đặc biệt và cung cấp bằng chứng phù hợp. Sinh viên cũng phải chứng minh có khả năng thanh toán trong vòng 45 ngày sau hạn thanh toán của học kỳ.",
+    "expected_context": "data/standardized/legal/student-fees-and-charges-guide-06-2026.md — mục 9.8 và 9.8.1, Gia hạn đóng học phí cho môn tiêu chuẩn"
+  },
+  {
+    "question": "Khóa Thạc sĩ chuyên sâu ngắn hạn được phép gia hạn đóng học phí tối đa bao nhiêu ngày?",
+    "expected_answer": "Thời gian gia hạn tối đa là 12 ngày kể từ Ngày Hạn Chót Thanh Toán Học Phí của khóa học. Đơn phải được nộp trước hạn thanh toán và chỉ được xem xét khi có hoàn cảnh đặc biệt.",
+    "expected_context": "data/standardized/legal/intensive-course-tuition-fee-extension.md — phần Notes; đối chiếu mục 9.8.3 của Student Fees & Charges Guide 2026"
+  },
+  {
+    "question": "Sinh viên từ học kỳ thứ hai trở đi rút môn trước cuối thứ Sáu tuần thứ 4 có được hoàn học phí không?",
+    "expected_answer": "Có. Sinh viên ở học kỳ thứ hai hoặc học kỳ tiếp theo rút môn hoặc rút khỏi chương trình trước khi kết thúc ngày làm việc thứ Sáu của tuần thứ 4 được hoàn trả toàn bộ học phí đã trả trước cho học kỳ đó.",
+    "expected_context": "data/standardized/legal/student-fees-and-charges-guide-06-2026.md — mục 10, University Pathway and Higher Education Refunds Policy"
+  },
+  {
+    "question": "Rút môn sau Ngày Hạn Chót Ghi Danh có được hoàn hoặc bảo lưu học phí không?",
+    "expected_answer": "Thông thường là không. Sinh viên rút môn hoặc chương trình sau Ngày Hạn Chót Ghi Danh không được hoàn hoặc bảo lưu học phí, trừ khi RMIT chấp thuận trường hợp hoàn trả hoặc bảo lưu do hoàn cảnh đặc biệt.",
+    "expected_context": "data/standardized/legal/student-fees-and-charges-guide-06-2026.md — mục 10.3 Không hoàn trả và mục 13 Hoàn trả hoặc Bảo lưu trong hoàn cảnh đặc biệt"
+  },
+  {
+    "question": "Điều kiện học thuật và tiếng Anh để vào chương trình Dự bị Đại học của RMIT là gì?",
+    "expected_answer": "Ứng viên cần hoàn thành lớp 11 chương trình THPT quốc gia với điểm trung bình từ 6,0/10,0, hoặc tốt nghiệp THPT với điểm trung bình lớp 12 từ 5,0/10,0. Yêu cầu tiếng Anh là IELTS Học thuật 5.5, không kỹ năng nào dưới 5.0, hoặc chứng chỉ tương đương.",
+    "expected_context": "data/standardized/news/article_02.md — mục Dự bị Đại học, Yêu cầu đầu vào"
+  },
+  {
+    "question": "Chương trình Dự bị Đại học của RMIT khai giảng khi nào và kéo dài bao lâu?",
+    "expected_answer": "Chương trình có các kỳ nhập học vào tháng 2 và tháng 8, kéo dài một năm gồm hai kỳ học.",
+    "expected_context": "data/standardized/news/article_02.md — mục Dự bị Đại học, Các kỳ nhập học và Thời gian học"
+  },
+  {
+    "question": "Chương trình Cử nhân Công nghệ thông tin của RMIT được tổ chức nào kiểm định?",
+    "expected_answer": "Chương trình được Hiệp hội Máy tính Australia (Australian Computer Society — ACS), một thành viên của Hiệp định Seoul, kiểm định ở cấp độ chuyên nghiệp; sinh viên tốt nghiệp được công nhận để hành nghề quốc tế.",
+    "expected_context": "data/standardized/news/article_03.md — mục Tổng quan chương trình Cử nhân Công nghệ thông tin"
+  },
+  {
+    "question": "Sinh viên Cử nhân Công nghệ thông tin tại RMIT có bao nhiêu lựa chọn chuyên ngành chính và chuyên ngành phụ?",
+    "expected_answer": "Sinh viên có thể tự thiết kế lộ trình học với 3 chuyên ngành chính và 8 chuyên ngành phụ.",
+    "expected_context": "data/standardized/news/article_03.md — mục Tổng quan và Cấu trúc chương trình"
+  },
+  {
+    "question": "Điều kiện học thuật và điều kiện tiên quyết môn Toán của chương trình Kỹ sư Kỹ thuật phần mềm là gì?",
+    "expected_answer": "Ứng viên cần tốt nghiệp THPT quốc gia, đạt điểm trung bình lớp 12 từ 7,0/10,0 và có điểm trung bình môn Toán lớp 12 từ 6,0/10,0 hoặc tương đương.",
+    "expected_context": "data/standardized/news/article_05.md — mục Điều kiện tuyển sinh, Yêu cầu học thuật và Điều kiện tiên quyết"
+  },
+  {
+    "question": "Yêu cầu IELTS để vào chương trình Kỹ sư Kỹ thuật phần mềm tại RMIT là bao nhiêu?",
+    "expected_answer": "Ứng viên cần IELTS Học thuật hoặc IELTS Học thuật One Skill Retake đạt 6.5, không kỹ năng nào dưới 6.0. Kết quả tiếng Anh được công nhận trong vòng hai năm và RMIT không chấp nhận chứng chỉ thi theo hình thức at-home hoặc online.",
+    "expected_context": "data/standardized/news/article_05.md — mục Điều kiện tuyển sinh, Yêu cầu tiếng Anh"
+  },
+  {
+    "question": "Kiểm định quốc tế của chương trình Kỹ sư Kỹ thuật phần mềm tại cơ sở Nam Sài Gòn và Hà Nội khác nhau thế nào?",
+    "expected_answer": "Tại Nam Sài Gòn, chương trình được Hiệp hội Kỹ sư Australia (EA) kiểm định và được công nhận quốc tế theo Hiệp định Washington. Tại Hà Nội, chương trình mới được EA kiểm định tạm thời, chưa thuộc phạm vi Hiệp định Washington. Ngoài ra, ACS kiểm định chương trình cho sinh viên nhập học từ năm 2024 tại cả hai cơ sở.",
+    "expected_context": "data/standardized/news/article_05.md — mục Tổng quan và Công nhận quốc tế"
+  },
+  {
+    "question": "Làm thế nào để đặt lịch hẹn với Student Connect và có những hình thức hẹn nào?",
+    "expected_answer": "Sinh viên đăng nhập Student Connect Portal bằng tài khoản sinh viên, vào Services, chọn Book an appointment, tìm khung giờ, chọn lịch phù hợp rồi nhấn Submit. Có ba hình thức hẹn: trực tiếp, qua điện thoại hoặc hội nghị truyền hình; lịch trực tiếp thường không có khi cơ sở đóng cửa.",
+    "expected_context": "data/standardized/legal/student-account-appointment-guide.md — các bước đặt lịch và phần giải thích Appointment Mode"
+  },
+  {
+    "question": "Sau khi gửi yêu cầu trên Student Connect Portal, sinh viên theo dõi tiến độ ở đâu và liên hệ bằng số nào nếu cần hỗ trợ?",
+    "expected_answer": "Sinh viên theo dõi tiến độ trong mục My requests. Nếu cần hỗ trợ, có thể gọi Student Connect theo số 028 3776 1306 tại Nam Sài Gòn hoặc 024 3724 5930 tại Hà Nội, hoặc đến Student Connect tại cơ sở.",
+    "expected_context": "data/standardized/legal/student-account-enquiry-guide.md — hướng dẫn gửi yêu cầu và thông tin liên hệ Student Connect"
   }
 ]
