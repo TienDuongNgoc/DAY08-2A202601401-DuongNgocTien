@@ -76,8 +76,61 @@ def lexical_search(query: str, top_k: int = 10) -> list[dict]:
     return results
 
 
+_tfidf_vectorizer = None
+_tfidf_matrix = None
+
+def build_tfidf_index(corpus: list[dict]):
+    """
+    Xây dựng TF-IDF index từ corpus sử dụng scikit-learn.
+    """
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    vectorizer = TfidfVectorizer()
+    texts = [doc["content"] for doc in corpus]
+    matrix = vectorizer.fit_transform(texts)
+    return vectorizer, matrix
+
+def get_tfidf_index():
+    global _tfidf_vectorizer, _tfidf_matrix
+    if _tfidf_vectorizer is None or _tfidf_matrix is None:
+        _tfidf_vectorizer, _tfidf_matrix = build_tfidf_index(CORPUS)
+    return _tfidf_vectorizer, _tfidf_matrix
+
+def tfidf_search(query: str, top_k: int = 10) -> list[dict]:
+    """
+    Tìm kiếm từ khóa sử dụng TF-IDF và cosine similarity.
+    """
+    from sklearn.metrics.pairwise import cosine_similarity
+    import numpy as np
+    
+    vectorizer, matrix = get_tfidf_index()
+    query_vec = vectorizer.transform([query])
+    
+    # Tính cosine similarity giữa query và tất cả document
+    scores = cosine_similarity(query_vec, matrix).flatten()
+    
+    # Lấy top_k indices
+    top_indices = np.argsort(scores)[::-1][:top_k]
+    
+    results = []
+    for idx in top_indices:
+        if scores[idx] > 0:
+            results.append({
+                "content": CORPUS[idx]["content"],
+                "score": float(scores[idx]),
+                "metadata": CORPUS[idx]["metadata"]
+            })
+    return results
+
+
 if __name__ == "__main__":
-    # Test
-    results = lexical_search("tuition fee payment methods", top_k=5)
+    query = "tuition fee payment methods"
+    
+    print("=== BM25 Search ===")
+    results = lexical_search(query, top_k=3)
     for r in results:
+        print(f"[{r['score']:.3f}] {r['content'][:100]}...")
+
+    print("\n=== TF-IDF Search ===")
+    tfidf_res = tfidf_search(query, top_k=3)
+    for r in tfidf_res:
         print(f"[{r['score']:.3f}] {r['content'][:100]}...")
