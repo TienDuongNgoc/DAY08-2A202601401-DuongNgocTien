@@ -15,8 +15,12 @@ quyết định fallback ở Task 9 — xem ghi chú ở đó.
 """
 
 from typing import Optional
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
+key = os.getenv("JINA_API_KEY")
 def rerank_cross_encoder(
     query: str, candidates: list[dict], top_k: int = 5
 ) -> list[dict]:
@@ -34,22 +38,22 @@ def rerank_cross_encoder(
     # TODO: Implement cross-encoder reranking
     #
     # Option A: Jina Reranker API
-    # import requests
-    # response = requests.post(
-    #     "https://api.jina.ai/v1/rerank",
-    #     headers={"Authorization": f"Bearer {JINA_API_KEY}"},
-    #     json={
-    #         "model": "jina-reranker-v2-base-multilingual",
-    #         "query": query,
-    #         "documents": [c["content"] for c in candidates],
-    #         "top_n": top_k
-    #     }
-    # )
-    # reranked = response.json()["results"]
-    # return [
-    #     {**candidates[r["index"]], "score": r["relevance_score"]}
-    #     for r in reranked
-    # ]
+    import requests
+    response = requests.post(
+        "https://api.jina.ai/v1/rerank",
+        headers={"Authorization": f"Bearer {key}"},
+        json={
+            "model": "jina-reranker-v2-base-multilingual",
+            "query": query,
+            "documents": [c["content"] for c in candidates],
+            "top_n": top_k
+        }
+    )
+    reranked = response.json()["results"]
+    return [
+        {**candidates[r["index"]], "score": r["relevance_score"]}
+        for r in reranked
+    ]
     #
     # Option B: Local model (Qwen3-Reranker)
     # from transformers import AutoModelForSequenceClassification, AutoTokenizer
@@ -197,6 +201,6 @@ if __name__ == "__main__":
         {"content": "Scholarship eligibility requirements", "score": 0.6, "metadata": {}},
         {"content": "Library study room booking guide", "score": 0.5, "metadata": {}},
     ]
-    results = rerank("tuition fee payment", dummy_candidates, top_k=2)
+    results = rerank("tuition fee payment", dummy_candidates, top_k=2, method="cross_encoder")
     for r in results:
         print(f"[{r['score']:.3f}] {r['content']}")

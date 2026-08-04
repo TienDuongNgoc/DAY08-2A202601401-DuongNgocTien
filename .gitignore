@@ -17,6 +17,8 @@ data/_tmp_pdf/
 *.tmp
 pageindex_doc_ids.json
 pageindex_pdfs/
+data/
+chroma_db/
 
 # IDE
 .vscode/
@@ -28,3 +30,4 @@ Thumbs.db
 
 # Ignore requirements.txt changes locally
 requirements.txt
+
