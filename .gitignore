@@ -28,3 +28,6 @@ Thumbs.db
 
 # Ignore requirements.txt changes locally
 requirements.txt
+
+data
+chroma_db/

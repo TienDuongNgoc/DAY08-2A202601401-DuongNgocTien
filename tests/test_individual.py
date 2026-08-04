@@ -20,6 +20,7 @@ SRC_DIR = PROJECT_DIR / "src"
 
 # Add src to path
 sys.path.insert(0, str(PROJECT_DIR))
+sys.path.insert(0, str(SRC_DIR))
 
 
 # ===========================================================================
